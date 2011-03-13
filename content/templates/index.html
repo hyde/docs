@@ -1,0 +1,66 @@
+===
+title: Creating layouts
+subtitle: Overview on writing nice templates for hyde
+index: 6
+===
+
+§§ blurb
+
+Hyde is designed to support more than one template language for creating
+layouts. However, hyde currently only supports [jinja2][]. This section of the
+documentation will focus on creating templates using jinja2.
+
+If you are not familiar with jinja2 its a good idea to go through the
+[most excellent jinja2 documentation][jinja2docs].
+
+§§ /blurb
+
+## Site structure
+
+Hyde encourages sepration of content from layout. The following shows a
+typical structure of a hyde website.
+
+~~~~~sh~~~~~~~~~
+- content
+    - media
+        - css
+        - js
+        - images
+    about.html
+    index.html
+    - blog
+    - projects
+    - portfolio
+- layout
+    base.j2
+    macros.j2
+site.yaml
+~~~~~~~~~~~~~~~~
+
+A good objective is to have all the files in content contain as little layout
+as possible and be written with a text oriented markup language like
+`markdown`. While its not always possible to achieve 100% sepration, hyde
+provides several nice tools to get very close to that goal.
+
+## Context Variables
+
+Hyde by default makes the following variables available for templates:
+
+*   `site` - Represents the container object of the entire site
+*   `node` - The node (folder) where the current file resides
+*   `resource` - The resource (file) that is currently being processed
+*   Context Variables - All variables defined under the `context` section of
+    the site configuration are available to the templates.
+
+Read more information about `site`, `node` & `resource` variables in
+[site model documentation][sitemodel].
+
+Read more information about context variables in the
+[configuration documentation][ctxconfig].
+
+
+
+[jinja2]: {{ links.jinja2 }}
+[jinja2docs]: {{ links.jinja2docs }}
+[ctxconfig]: [[config#context_data]]
+[sitemodel]: [[[site_model]]]

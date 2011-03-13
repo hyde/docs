@@ -33,6 +33,8 @@ context:
                 -
                     name: hyde-basic-tag-list
                     description: List of blogs posts with a specific tag
+    providers:
+        links: links.yaml
 meta:
     extends: doc.j2
     default_block: doc
