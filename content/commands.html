@@ -176,5 +176,37 @@ hyde [-s </site/path>] [-v] gen [-d </deploy/path>] [-c <config/path>] [-h]
 
 :   Displays the help text for the `serve` command.
 
+## The publish command
+
+Publishes the site based on configuration. Currently the only supported
+publishing target is a git repository. See the [publisher documentation][]
+for more information.
+
+~~~~sh~~~~~
+hyde [-s </site/path>] [-v] publish -p <conf> [-m <msg>] [-c <config/path>] [-h]
+~~~~~~~~~~~
+
+`-s SITEPATH, --sitepath SITEPATH`
+:   The path to the site to be generated.
+
+    *Optional* - defaults to current working directory.
+
+`-p CONFIG`
+
+:   This should point to a configuration section in the site configuration
+    that has the settings for the publisher. For example:
+
+    The following configuration (taken from this site) when invoked with
+    `hyde publish -p github` will use the Git publisher to publish the
+    generated site to `hyde/hyde.github.com` repository.
+
+    ~~~yaml~~~~
+    publisher:
+        github:
+            type: hyde.ext.publishers.dvcs.Git
+            path: ../hyde.github.com
+            url: git@github.com:hyde/hyde.github.com.git
+    ~~~~~~~~~~
 
 [configuration]: [[config]]
+[publisher]: [[publisher]]

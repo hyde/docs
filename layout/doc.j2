@@ -11,9 +11,9 @@
     {%- endblock %}
     {%- endfilter %}
     </article>
-    <aside class="toc">
-        <mark class="version">Version: {{ version }}</mark>
-        <ul>
+    <aside>
+        <ul class="toc">
+        <li><mark class="version">Version: {{ version }}</mark></li>
         {% for topic, res_walker in site.content.walk_toc_groups() -%}
         {% set resources = res_walker|list -%}
         {% if resources -%}
@@ -36,6 +36,32 @@
         {%- endif %}
         {%- endfor %}
         </ul>
+        <nav class="prevnext">
+            {% if resource.prev_in_toc -%}
+            <a
+                class="prev"
+                title="{{ resource.prev_in_toc.meta.title }}"
+                href="{{ content_url(resource.prev_in_toc.url) }}">
+                &larr;Previous
+            </a>
+            {%- endif %}
+            {% if resource.next_in_toc -%}
+            <a
+                class="next"
+                title="{{ resource.next_in_toc.meta.title }}"
+                href="{{ content_url(resource.next_in_toc.url) }}">
+                Next&rarr;
+            </a>
+            {%- endif %}
+            <br class="clear">
+        </nav>
     </aside>
 </div>
+<footer>
+{% filter markdown|typogrify %}
+[smelted with hyde](https://github.com/hyde/hyde) &mdash;
+[spot & complain](https://github.com/hyde/hyde.github.com/issues) &mdash;
+[fork & fix](https://github.com/hyde/hyde.github.com)
+{% endfilter %}
+</footer>
 {%- endblock %}
