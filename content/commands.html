@@ -179,7 +179,7 @@ hyde [-s </site/path>] [-v] gen [-d </deploy/path>] [-c <config/path>] [-h]
 ## The publish command
 
 Publishes the site based on configuration. Currently the only supported
-publishing target is a git repository. See the [publisher documentation][]
+publishing target is a git repository. See the [publisher documentation][pub]
 for more information.
 
 ~~~~sh~~~~~
@@ -196,7 +196,7 @@ hyde [-s </site/path>] [-v] publish -p <conf> [-m <msg>] [-c <config/path>] [-h]
 :   This should point to a configuration section in the site configuration
     that has the settings for the publisher. For example:
 
-    The following configuration (taken from this site) when invoked with
+    The following configuration (taken from this site), when invoked with
     `hyde publish -p github` will use the Git publisher to publish the
     generated site to `hyde/hyde.github.com` repository.
 
@@ -209,4 +209,4 @@ hyde [-s </site/path>] [-v] publish -p <conf> [-m <msg>] [-c <config/path>] [-h]
     ~~~~~~~~~~
 
 [configuration]: [[config]]
-[publisher]: [[publisher]]
+[pub]: [[publisher]]

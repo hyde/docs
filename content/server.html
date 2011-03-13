@@ -1,6 +1,43 @@
 ===
-title: Webserver
+title: Hyde web server
 subtitle: Serving hyde websites
 toc: getting started
 index: 4
 ===
+
+§§ blurb
+
+The hyde web server is a simple bare-bones webserver based on the python
+[Simple HTTP Request Handler][SimpleHTTP].
+
+The following command starts the built in webserver:
+
+~~~sh~~~
+hyde serve
+~~~~~~~~
+
+You can access your website now at `http://localhost:8080`.
+
+The webserver regenerates the necessary files to serve your request. So, you
+can make your changes and simply refresh your browser to view them.
+
+[SimpleHTTP]: http://docs.python.org/library/simplehttpserver.html
+
+§§ /blurb
+
+## Special Parameters
+
+The hyde webserver supports just one special parameter. `refresh`.
+
+If you add `?refresh` to the url, the server regenerates the site
+completely and refreshes your browser. Note that for larger sites, this may
+take a few seconds to complete.
+
+## Dependencies
+
+Information about dependencies between pages are stored in your site root
+directory in the `.hyde_deps` file. If regeneration is not consistent with
+your expectations, you can simply delete this file and hyde will build the
+dependency tree again.
+
+

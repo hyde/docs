@@ -17,6 +17,22 @@ plugins:
 context:
     data:
         version: 0.8
+        basic_template:
+            base:
+                http://emberapp.com/lakshmivyas/images/
+            images:
+                -
+                    name: hyde-basic-home
+                    description: The home page
+                -
+                    name: hyde-basic-list
+                    description: List of blog posts
+                -
+                    name: hyde-basic-blog-post
+                    description: A blog post
+                -
+                    name: hyde-basic-tag-list
+                    description: List of blogs posts with a specific tag
 meta:
     extends: doc.j2
     default_block: doc

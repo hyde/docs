@@ -33,11 +33,9 @@ Hyde desires to fulfill the lofty goal of removing the
 
 Hyde is available on [pypi][].
 
-~~~sh~~~
+※ install.html as install
 
-pip install hyde
-
-~~~~~~~~
+{{ install.blurb }}
 
 You can find more detailed documentation in the
 [installation section][install].
@@ -60,16 +58,26 @@ cd /path/to/your/site
 hyde gen
 ~~~~~~~~
 
-To run the built in webserver that autogenerates if needed:
+※ server.html as server
 
-~~~sh~~~
-hyde serve
-~~~~~~~~
-
-You can access the website now at `http://localhost:8080`
+{{ server.blurb }}
 
 For all the supported options, read the
 [command line documentation][commandline] or run `hyde -h`.
+
+## Your first hyde website
+
+Hyde uses the `basic` layout to generate your website by default. When you
+view your generated website, you will see the following dummy pages:
+
+{% import "macros.j2" as macros %}
+
+{{ macros.render_ember(basic_template) }}
+
+
+You can now continue to edit the content, layout and styles to customize it to
+your needs. Please see the [templating guide][templ] to get more information.
+
 
 ## Source
 
@@ -93,3 +101,4 @@ Hyde is [socially coded][hyde]. Feel free to [fork][forking].
 [forking]: [[contribute]]
 [commandline]: [[commands]]
 [pypi]: http://pypi.python.org/pypi/hyde
+[templ]: [[templates]]

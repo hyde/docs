@@ -102,7 +102,7 @@ The following path & url properties can be defined for use in templates:
         - hyde.ext.plugins.blockdown.BlockdownPlugin
     ~~~~~~~~~~~
 
-## Context
+## Context Data
 
 The context section contains key / value pairs that are simply passed
 on to the templates
@@ -110,30 +110,35 @@ on to the templates
 _Optional_. Default: No context variables are defined.
 
 For example, given the following configuration, the statement
-`{%raw%}{{hyde.current_version}}{%endraw%}` in any template
+`{%raw%}{{app.current_version}}{%endraw%}` in any template
 will output `0.6`.
 
 ~~~yaml~~~
 context:
-    hyde:
-        current_version: 0.6
+    data:
+        app:
+            current_version: 0.6
 ~~~~~~~~~~~
 
-## Providers
+## Context Data Providers
 
 Providers are special constructs used to import data into the context.
 For example, data from a database can be exported as `yaml` and imported
-as providers.
+as a provider.
 
-For example, consider the following snippet:
+For example, consider the following snippets:
 
 ~~~yaml~~~
 context:
     providers:
-        versions: hyde-versions.yaml
+        versions: app-versions.yaml
 ~~~~~~~~~~~
 
-This would import the data in `hyde-versions.yaml` into `context[versions]`.
+~~~~yaml:app-versions.yaml~~~~
+latest: 0.6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This would import the data in `app-versions.yaml` into `context[versions]`.
 This data can be used directly in templates in this manner:
 `{%raw%}{{ versions.latest }}{%endraw%}`.
 
@@ -155,7 +160,6 @@ markdown:
 ~~~~~~~~~~
 
 will use the def_list, tables and headerid extensions in python markdown.
-
 
 [commandline]: [[commands]]
 [plugins]: [[plugins]]
