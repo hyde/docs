@@ -2,15 +2,19 @@
 title: Command Line
 subtitle: working with hyde
 created: 2011-01-27 11:02:43
+toc: getting started
+index: 3
 ===
 
 §§ blurb
 
-The hyde command line supports three subcommands:
+The hyde command line supports these subcommands:
 
-1. create - Initializes a new site at a given path
-2. gen - Generates the website to a configured deploy folder
-3. serve - Starts a local http server that regenerates based on the requested file
+1.  create - Initializes a new site at a given path
+2.  gen - Generates the website to a configured deploy folder
+3.  serve - Starts a local http server that regenerates based on the
+    requested file
+4.  publish - Publishes the generated site based on configuration.
 
 §§ /blurb
 
@@ -25,8 +29,10 @@ hyde [-s </site/path>] [-v] create [-l <layout>] [-f] [-h]
 ~~~~~~~~
 
 `-s SITEPATH, --sitepath SITEPATH`
-:   Where the site must be created. If this path is not empty then the `-f`
-    option must be specified to overwrite the site.
+:   Where the site must be created.
+
+    If this path is not empty then the `-f` option must be specified to
+    overwrite the site.
 
     *Optional* - defaults to current working directory.
 
@@ -53,6 +59,14 @@ hyde [-s </site/path>] [-v] create [-l <layout>] [-f] [-h]
 
     *Optional* - defaults to `basic`
 
+    Assuming the `HYDE_DATA` environment variable is empty and the folder
+    `~/test` is empty, the following command will create a new hyde site
+    at `~/test` with the contents of `layouts/doc` folder:
+
+    ~~~sh~~~
+    hyde -s ~/test create -l doc
+    ~~~~~~~~
+
 `-v, --verbose`
 :   Logs detailed messages to the console.
 
@@ -61,14 +75,6 @@ hyde [-s </site/path>] [-v] create [-l <layout>] [-f] [-h]
 `-h`
 :   Displays the help text for the `create` command.
 
-Assuming the `HYDE_DATA` environment variable is empty and the folder
-`~/test` is empty, the following command will create a new hyde site
-at `~/test` with the contents of `layouts/doc` folder:
-
-~~~sh~~~
-hyde -s ~/test create -l doc
-~~~~~~~~
-
 ## The generate command
 
 Generates the given website.
@@ -76,13 +82,22 @@ Generates the given website.
 ~~~sh~~~
 hyde gen
 
-hyde [-s </site/path>] [-v] gen [-d </deploy/path>] [-c <config/path>] [-h]
+hyde [-s <site/path>] [-v] gen [-r] [-d <deploy/path>] [-c <config/path>] [-h]
 ~~~~~~~~
 
 `-s SITEPATH, --sitepath SITEPATH`
 :   The path to the site to be generated.
 
     *Optional* - defaults to current working directory.
+
+`-r, --regen`
+:   Regenerate the entire website. By default hyde performs incremental
+    generation. While hyde does a good job at understanding the dependencies,
+    its far from perfect. When there are cases where the incremental
+    generation does not yield the desired results, you can provide this option
+    to generate the website from scratch.
+
+    *Optional* - defaults to incremental generation.
 
 `-d DEPLOY_PATH, --deploy-path DEPLOY_PATH`
 :   Location where the site should be generated. This option overrides any
@@ -103,6 +118,14 @@ hyde [-s </site/path>] [-v] gen [-d </deploy/path>] [-c <config/path>] [-h]
 
     *Optional* - defaults to `site.yaml`
 
+    The following command will use `production.yaml` as the configuration file and
+    generate the website at `~/test` to `~/production_site` directory.
+
+    ~~~sh~~~
+    cd ~/test
+    hyde gen -c production.yaml -d ~/production_site
+    ~~~~~~~~
+
 `-v, --verbose`
 :   Logs detailed messages to the console.
 
@@ -110,14 +133,6 @@ hyde [-s </site/path>] [-v] gen [-d </deploy/path>] [-c <config/path>] [-h]
 
 `-h`
 :   Displays the help text for the `gen` command.
-
-The following command will use `production.yaml` as the configuration file and
-generate the website at `~/test` to `~/production_site` directory.
-
-~~~sh~~~
-cd ~/test
-hyde gen -c production.yaml -d ~/production_site
-~~~~~~~~
 
 ## The serve command
 
@@ -150,13 +165,16 @@ hyde [-s </site/path>] [-v] gen [-d </deploy/path>] [-c <config/path>] [-h]
 
     *Optional* - defaults to `8080`
 
+    The following command will serve the website at `http://localhost:8181`
+
+    ~~~sh~~~
+    cd ~/test
+    hyde serve -p 8181
+    ~~~~~~~~
+
 `-h`
 
 :   Displays the help text for the `serve` command.
 
-    The following command will serve the website at `http://localhost:8181`
 
-~~~sh~~~
-cd ~/test
-hyde serve -p 8181
-~~~~~~~~
+[configuration]: [[config]]

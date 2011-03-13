@@ -1,15 +1,41 @@
 {% extends "root.j2" %}
 {% block main -%}
-<article>
-<hgroup>
-    <h1 class="title">{{ resource.meta.title }}</h1>
-    <h3 class="subtitle">{{ resource.meta.subtitle }}</h3>
-</hgroup>
-{% filter markdown|typogrify -%}
-{% block doc -%}
-{%- endblock %}
-</article>
-<aside>
-</aside>
-{%- endfilter %}
+<div class="doc">
+    <article>
+    <hgroup>
+        <h1 class="title">{{ resource.meta.title }}</h1>
+        <h3 class="subtitle">{{ resource.meta.subtitle }}</h3>
+    </hgroup>
+    {% filter markdown|typogrify -%}
+    {% block doc -%}
+    {%- endblock %}
+    {%- endfilter %}
+    </article>
+    <aside class="toc">
+        <mark class="version">Version: {{ version }}</mark>
+        <ul>
+        {% for topic, res_walker in site.content.walk_toc_groups() -%}
+        {% set resources = res_walker|list -%}
+        {% if resources -%}
+        {% set cls = ' active' if topic in resource.walk_toc_groups() else '' -%}
+        <li class="topic" id="topic{{ loop.index0 }}">
+            {% if not topic.hide_name -%}
+            <h2 class="{{cls}}">{{ topic.name|title|typogrify }}</h2>
+            {%- endif %}
+            <ul class="links">
+                {% for doc in resources -%}
+                <li>
+                <a {% if resource.url == doc.url %}class="active"{% endif %}
+                    title="{{ doc.meta.description|default('') }}"
+                    href="{{ content_url(doc.url) }}">
+                    {{ doc.meta.title|typogrify }}</a>
+                {%- endfor %}
+                </li>
+            </ul>
+        </li>
+        {%- endif %}
+        {%- endfor %}
+        </ul>
+    </aside>
+</div>
 {%- endblock %}

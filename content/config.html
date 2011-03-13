@@ -2,6 +2,8 @@
 title: Configuration
 subtitle: change hyde to match your style
 created: 2011-01-28 01:30:05
+toc: getting started
+index: 5
 ===
 
 §§ blurb
@@ -36,7 +38,7 @@ come from `/media` but on production you may have a subdomain and want
 the media to come from `http://abc.example.com/media`.
 
 This can be accomplished by creating an _extended_ configuration file and
-overriding the media_url property. For a real world example, you can take
+overriding the `media_url` property. For a real world example, you can take
 a look at the [source of this documentation][hydedocpages].
 
 ## Paths & Urls
@@ -78,7 +80,7 @@ The following path & url properties can be defined for use in templates:
 :   The template engine to use for processing the website can be specified
     in the configuration file as a python class path. Currently no other
     templates apart from `Jinja2` are supported, so the `template` setting
-    is a NOOP at the moment.
+    is a unused at the moment.
 
     _Optional_. Default: `hyde.ext.templates.jinja.Jinja2Template`
 
@@ -155,7 +157,7 @@ markdown:
 will use the def_list, tables and headerid extensions in python markdown.
 
 
-[commandline]: [[commandline.html]]
-[plugins]: [[plugins.html]]
+[commandline]: [[commands]]
+[plugins]: [[plugins]]
 [pymarkdown]: http://www.freewisdom.org/projects/python-markdown/Available_Extensions
 [hydedocpages]: https://github.com/hyde/hyde/blob/master/hyde/layouts/doc/pages.yaml

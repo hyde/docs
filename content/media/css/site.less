@@ -15,6 +15,14 @@ h2 {
     line-height: @gutter * 2;
 }
 
+figure > br{
+    height:0;
+    display:block;
+    margin:0;
+    padding:0;
+    line-height:0;
+}
+
 header.banner {
     width: 100%;
     height: @column * 3;
@@ -33,21 +41,77 @@ header.banner {
     }
     h3 {
         .subheading;
-        color: @qdark;
+        color: @darkest;
         position: absolute;
         bottom: @gutter - 2;
         font-size: @gutter * 2;
         left: @gutter * 22 + 2;
         margin:0;
-        text-shadow: -1px -1px 0px @clear - 90, 1px 1px 0px @clear + 90;
+        text-shadow: 0px 1px 2px @dark;
     }
     margin-bottom: @column - 2;
 }
 
+.doc{
+    position: relative;
+}
+
+aside.toc{
+
+    mark.version{
+        color: @darkest;
+        font-style: normal;
+        font-weight: normal;
+        background-color: @clear;
+        padding: 2px 6px;
+        text-shadow: 0px 1px 0px #fff;
+        .radius(6px);
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    .boxshadow(0, 1px, 3px, @qdark);
+    padding: 12px;
+    line-height: 24px;
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+
+    a:before{
+        content: '\00a0\00a0';
+    }
+
+    a.active:before{
+        content: '\00AB';
+    }
+
+    h2{
+        margin: 4px 0;
+        font-size: 16px;
+    }
+
+    h2.active{
+        background-color: #ededed;
+    }
+
+    ul{
+        padding:0;
+    }
+
+    li{
+        margin:0;
+        list-style-type: none;
+    }
+}
+
 article {
+    background-color: #f7f7f7;
+    text-shadow: 0px 2px 0px #fff;
+    float: left;
     padding: @column;
     .boxshadow(0, 1px, 3px, @qdark);
-    
+
     h1.title {
         color: @dark;
         font-size: @gutter * 3;
@@ -65,21 +129,22 @@ article {
 
 .code{
     position: relative;
-    
+
     figcaption{
         font-size: @gutter - 2;
         position:absolute;
-        bottom: @gutter * 2.5;
+        bottom: @gutter * 0.25;
         right: @gutter;
         color: @qdark;
     }
+    .boxshadow(0, 1px, 3px, @qdark);
+    background-color: #F0F3F3;
 }
 
 .highlight
 {
      pre{
         font-size: @gutter;
-        .boxshadow(0, 1px, 3px, @qdark);
         padding: @gutter + 4 @gutter @gutter;
         line-height: @gutter * 2;
         margin-bottom: @gutter / 2 + 2;
