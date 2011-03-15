@@ -31,10 +31,11 @@ hyde [-s </site/path>] [-v] create [-l <layout>] [-f] [-h]
 `-s SITEPATH, --sitepath SITEPATH`
 :   Where the site must be created.
 
-    If this path is not empty then the `-f` option must be specified to
-    overwrite the site.
+    Path must not exist. If it exists then the `-f` option must be specified
+    to overwrite the folder.
 
-    *Optional* - defaults to current working directory.
+    *Optional* - defaults to current working directory - in this case it
+    requires the `-f` parameter.
 
 `-f, --force`
 :   Specifying this option will overwrite files and folders at the given
