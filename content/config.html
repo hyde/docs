@@ -73,6 +73,29 @@ The following path & url properties can be defined for use in templates:
     path from the root of the site source or an absolute path. Note that
     this can also be overridden in the [command line][commandline] using
     the `-d` option.
+    
+### Extensionless URLs
+
+To avoid generating links that end in `.html`, add this line under `plugins` in
+the config file, `site.yaml`:
+
+        - hyde.ext.plugins.urls.UrlCleanerPlugin
+
+And append something like this to the end of `site.yaml`
+(the first line should not be indented):
+
+    urlcleaner:
+        index_file_names:
+            # Identifies the files that represents a directory listing.
+            # These file names are automatically stripped away when
+            # the content_url function is called.
+            - index.html
+        strip_extensions:
+            # The following extensions are automatically removed when
+            # generating the urls using content_url function.
+            - html
+        # This option will append a slash to the end of directory paths if true
+        append_slash: false
 
 ## Plugins & templates
 
