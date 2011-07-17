@@ -16,5 +16,5 @@ Contributors
 .. _Tero Piirainen: http://cloudpanic.com
 .. _original hyde project: http://github.com/lakshmivyas/hyde
 .. |demizer| replace:: Jesus Alvarez
-.. _demizer: https://demizerone.com
+.. _demizer: http://demizerone.com
 
