@@ -26,9 +26,15 @@ Serving the docs
         hyde -s ~/docs serve
         open http://localhost:8080
 
+Now what?
+------------
+- Explore
+- Add stuff
+- Fix things that are broken
+- See the TODO for guidance
+
 Links
 -----
-
 1. `Changelog`_
 2. `Authors`_
 
