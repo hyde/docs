@@ -33,5 +33,5 @@ Links
 2. `Authors`_
 
 .. _less: http://lesscss.org/
-.. _Authors: https://github.com/hyde/hyde/blob/master/AUTHORS
-.. _Changelog: https://github.com/hyde/hyde/blob/master/CHANGELOG.rst
+.. _Authors: https://github.com/hyde/docs/blob/master/AUTHORS.rst
+.. _Changelog: https://github.com/hyde/docs/blob/master/CHANGELOG.rst
