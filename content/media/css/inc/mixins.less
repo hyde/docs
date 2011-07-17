@@ -96,7 +96,8 @@ a img {
 
 .opacity(@op:100)
 {
-    filter:alpha(opacity=@op);
+    // Work around, see https://github.com/cloudhead/less.js/issues/133
+    filter: e(%("alpha(opacity=%s)", @op));
     -moz-opacity:@op/100;
     -khtml-opacity:@op/100;
     opacity:@op/100;
