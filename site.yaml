@@ -73,7 +73,7 @@ grouper:
                         name: templating guide
 
 less:
-    app: ~/local/bin/lessc
+    app: /usr/bin/lessc
 markdown:
     extensions:
         - def_list
