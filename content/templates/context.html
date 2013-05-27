@@ -3,3 +3,13 @@ title: Context Variables
 subtitle: Using context variables in hyde
 index: 7
 ===
+
+Hyde by default makes the following variables available for templates:
+
+*   `site` - Represents the container object of the entire site
+*   `node` - The node (folder) where the current file resides
+*   `resource` - The resource (file) that is currently being processed
+*   `resource.meta` - Contains all of the variables defined in the yaml 
+    section at the top of the resource.
+*   Context Variables - All variables defined under the `context` section of
+    the site configuration are available to the templates.
